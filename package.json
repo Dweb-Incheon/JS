@@ -1,0 +1,27 @@
+{
+  "name": "dweb",
+  "version": "1.0.0",
+  "description": "dweb web programming class",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dweb-Incheon/JavaScript.git"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "giseok",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dweb-Incheon/JavaScript/issues"
+  },
+  "homepage": "https://github.com/Dweb-Incheon/JavaScript#readme",
+  "dependencies": {
+    "json-server": "^0.17.4",
+    "node-fetch": "^3.3.2"
+  }
+}

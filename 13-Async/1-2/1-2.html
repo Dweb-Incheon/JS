@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <button id="myButton">Click me!</button>
+    </form>
+    <script>
+      // Ask the web browser to return an object representing the HTML
+      // <button> element that matches this CSS selector
+      let okay = document.querySelector("#myButton");
+      // Now register a callback function to be invoked when the user
+      // clicks on that button.
+      okay.addEventListener("click", () => {
+        alert("Button clicked!");
+      });
+    </script>
+  </body>
+</html>
