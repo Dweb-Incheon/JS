@@ -1,3 +1,6 @@
+// ✨ 6.2.4 Object.create()을 이용하여 객체를 만드는 방법
+"use strict";
+
 let o1 = Object.create({ x: 1, y: 2 }); // o1 inherits properties x and y.
 o1.x + o1.y; //=>3
 
@@ -9,19 +12,25 @@ let o3 = Object.create(Object.prototype); // o3 is like {} or new Object().
 
 let o = { x: "don't change this value" };
 
-//library.function(Object.create(o)); // Guard against accidental modifications
 console.log("👿", Object.create(o));
 console.log("😀", o);
 
-// 두 Case를 비교해 볼 것
-// case 1. 원본이 변경됨
-let ox = { age: 25, i: o };
-ox.i.x = "ok if you try to modify x";
-console.log("👍", ox);
+// 🌟 Guard against accidental modifications
+function lib(obj) {
+  obj.x = "-------";
+  console.log("실수를 발생시킴", obj);
+}
+lib(Object.create(o));
+console.log("영향을 받았는지 확인", o);
+
+// 이런식으로 객체를 생성할 수도 있음
+let ox1 = { age: 25, i: o };
+ox1.i.x = "ok if you try to modify x";
+console.log("👍", ox1);
 console.log("🏅", o);
 
-// case2. 원본 변경 안됨
-let ox = { age: 25, i: Object.create(o) };
-ox.i.x = "ok if you try to modify x";
-console.log("👍", ox);
+// 이런식으로 객체를 생성할 수도 있음
+let ox2 = { age: 25, i: Object.create(o) };
+ox2.i.x = "ok if you try to modify x";
+console.log("👍", ox2);
 console.log("🏅", o);

@@ -1,3 +1,4 @@
+"use strict";
 // Example 1
 let o = {}; // o inherits object methods from Object.prototype
 o.x = 1; // and it now has an own property x.

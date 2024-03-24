@@ -1,3 +1,4 @@
+"use strict";
 let book = {
   "main title": "JavaScript", // These property names include spaces
   "sub-title": "The Definitive Guide", // and hyphens, so use string literals.

@@ -1,3 +1,4 @@
+"use strict";
 function computeValue(portfolio) {
   let total = 0.0;
   for (let stock in portfolio) {

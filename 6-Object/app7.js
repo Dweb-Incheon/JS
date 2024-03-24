@@ -17,8 +17,8 @@ if (book.subtitle) {
   let len = book.subtitle.length;
 }
 
-// let len = book && book.subtitle && book.subtitle.length;
-
+let len1 = book && book.subtitle && book.subtitle.length;
+console.log(`👏`, Boolean(book));
 // --------
 // Approach 1. A verbose and explicit technique
 let surname = undefined;
