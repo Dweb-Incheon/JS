@@ -17,8 +17,12 @@ console.log("😀", o);
 
 // 🌟 Guard against accidental modifications
 function lib(obj) {
+  console.log(`👏🌟 ${obj.x}`);
   obj.x = "-------";
   console.log("실수를 발생시킴", obj);
+  for (let a in obj) {
+    console.log(`🌟 ${obj[a]}`);
+  }
 }
 lib(Object.create(o));
 console.log("영향을 받았는지 확인", o);

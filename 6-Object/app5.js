@@ -11,11 +11,11 @@ function computeValue(portfolio) {
 }
 
 // Remember
-let arr = ["book", "pen", "note"];
+let arr = ["book", "pen", "note"]; // Array Object
 let obj = { book: {}, pen: {}, note: {} };
 
-for (let i in arr) {
-  console.log("📚", arr[i]);
+for (let i of arr) {
+  console.log(i);
 }
 for (let i in obj) {
   console.log("✨", i);
