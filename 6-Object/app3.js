@@ -4,7 +4,7 @@
 let o1 = Object.create({ x: 1, y: 2 }); // o1 inherits properties x and y.
 o1.x + o1.y; //=>3
 
-o1.dweb = "inu lab";
+//o1.dweb = "inu lab";
 
 let o2 = Object.create(null); // o2 inherits no props or methods.
 
