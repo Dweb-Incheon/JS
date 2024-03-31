@@ -2,11 +2,11 @@
 
 // 이 부분을 합치려는 코드로 가정할 것
 /*
-  let global = "Dweb";
-    function dweb() {
-      console.log("🌟", global);
-    }
-   dweb();
+let global = "Dweb";
+function dweb() {
+  console.log("🌟", global);
+}
+dweb();
 */
 
 // ✨ ① 첫번째 방법
@@ -15,7 +15,8 @@ function chunkNamespace() {
   // Chunk of code goes here
   // Any variables defined in the chunk are local to thisfunction
   // instead of cluttering up the global namespace.
-  let global = "Dweb";
+
+  let global = "Dweb"; // 🌟 주석달면 "incheon"
   function dweb() {
     console.log("🌟", global);
   }
@@ -27,7 +28,8 @@ chunkNamespace(); // 🚨 But don't forget to invoke the function!
 (function () {
   // chunkNamespace() function rewritten as an unnamed expression.
   // Chunk of code goes here
-  let global = "Dweb";
+
+  let global = "Dweb"; // 🌟 주석달면 "incheon"
   function dweb() {
     console.log("🌟", global);
   }

@@ -15,3 +15,4 @@ function max(...args) {
   return maxValue;
 }
 let res = max(1, 10, 100, 2, 3, 1000, 4, 5, 6); // => 1000
+console.log(res);

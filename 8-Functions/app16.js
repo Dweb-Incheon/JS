@@ -20,6 +20,7 @@ function operate(operator, operand1, operand2) {
 // We could invoke this function like this to compute the value (2+3) + (4*5):
 let i = operate(add, operate(add, 2, 3), operate(multiply, 4, 5));
 
+// 🌟 더 나은 방법
 // For the sake of the example, we implement the simple functions again,
 // this time within an object literal;
 const operators = {

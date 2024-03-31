@@ -7,11 +7,14 @@ let o = {
     let self = this; // Save the "this" value in a variable.
     this === o; // => true: "this" is the object o.
     console.log(`😃 ${this === o}`);
-    f(); // Now call the helper function f().
+
+    f(); // Now call the helper function f(). ✨ Hoisting
+
     function f() {
       // A nested function f
-      this === o; // => false: "this" is global or undefined
+      this === o; // => false: "this" is global or ✨ undefined
       console.log(`🌟 ${this === o}`);
+
       self === o; // => true: self is the outer "this" value.
       console.log(`✨ ${self === o}`);
     }
