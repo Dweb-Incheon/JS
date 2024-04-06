@@ -8,15 +8,12 @@ function* oneDigitPrimes() {
   yield 5; // the code until a yield statement provides
   yield 7; // the return value for the next() method.
 }
+
 function* sequence(...iterables) {
   for (let iterable of iterables) {
-    console.log(iterable);
     for (let item of iterable) {
-      console.log("👏");
       yield item;
     }
   }
 }
-//console.log([...sequence("abc", oneDigitPrimes())]); // => ["a","b","c",2,3,5,7]
-let a = sequence("abc", oneDigitPrimes());
-a.next();
+console.log([...sequence("abc", oneDigitPrimes())]); // => ["a","b","c",2,3,5,7]

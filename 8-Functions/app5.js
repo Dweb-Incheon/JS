@@ -10,6 +10,6 @@ let calculator = {
     this.result = this.operand1 + this.operand2;
   },
 };
-calculator.add(); // A method invocation to compute 1+1.
 
+calculator.add(); // A method invocation to compute 1+1.
 calculator.result; // => 2

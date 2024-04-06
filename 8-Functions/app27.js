@@ -7,6 +7,7 @@ let obj = { class: "dweb", prof: "giseok" };
 let fullname = function (name) {
   this.class = "incheon" + this.class;
   this.prof = this.prof + name;
+  console.log(name);
 };
 // 🔥 fullname 함수가 obj의 메서드인 것 마냥 indirectly 호출됨
 fullname.call(obj, "park");
@@ -19,7 +20,9 @@ let greetings = [
 
 for (var i = 0; i < greetings.length; i++) {
   (function (i) {
-    // print에
+    // console.log(this);
+    // 여기서 this는 call에 전달되는 객체 { greeting: "...", name: "..." }
+    // this 객체에 print 메서드를 만들어 호출하는 것
     this.print = function () {
       console.log("#" + i + " " + this.greeting + ", " + this.name);
     };

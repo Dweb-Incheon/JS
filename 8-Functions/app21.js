@@ -5,6 +5,7 @@
 // 🙋 외부에서 nested function이 호출되면 어떤 일이 발생하는가?
 
 let scope = "global scope"; // A global variable
+
 function checkscope() {
   let scope = "local scope"; // A local variable
   function f() {
@@ -12,4 +13,7 @@ function checkscope() {
   }
   return f;
 }
-let s = checkscope()(); // 🙋 What does this return?
+scope = "Incheon National University";
+
+let v = checkscope();
+let s = v(); // 🙋 What does this return?

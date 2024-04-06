@@ -8,6 +8,7 @@ function* oneDigitPrimes() {
   yield 5; // the code until a yield statement provides
   yield 7; // the return value for the next() method.
 }
+
 // Given an array of iterables, yield their elements in interleaved order.
 function* zip(...iterables) {
   // Get an iterator for each iterable
@@ -33,5 +34,6 @@ function* zip(...iterables) {
     }
   }
 }
+
 // Interleave three iterable objects
 [...zip(oneDigitPrimes(), "ab", [0])]; // => [2,"a",0,3,"b",5,7]

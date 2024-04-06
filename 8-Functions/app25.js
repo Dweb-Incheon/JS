@@ -1,8 +1,8 @@
 // 🌟 Closures
 // ✨ Nested functions 에서의 lexical scoping rules을 이해할 것
-
 // 🚨 예제 1
 // This function returns a function that always returns v
+
 function constfunc(v) {
   return () => v;
 }
@@ -21,5 +21,6 @@ function constfuncs() {
   }
   return funcs2;
 }
+
 let funcs2 = constfuncs();
 funcs2[5](); // => 10; Why doesn't this return 5?

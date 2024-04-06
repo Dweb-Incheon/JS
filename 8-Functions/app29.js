@@ -3,7 +3,7 @@
 const f = new Function("x", "y", "return x*y;");
 console.log(f(10, 10));
 
-// 🔥 The function it creates do not use lexical scoping
+// 🔥🔥 The function it creates do not use lexical scoping
 let scope = "global";
 function constructFunction() {
   let scope = "local";

@@ -3,7 +3,6 @@
 
 // This higher-order function returns a new function that passes its
 // arguments to f and returns the logical negation of f's return value;
-
 function not(f) {
   return function (...args) {
     // Return a new function
@@ -19,6 +18,9 @@ const odd = not(even); // A new function that does the opposite
 // Return a function that expects an array argument and applies f to
 // each element, returning the array of return values.
 // Contrast this with the map() function from earlier.
+const map = function (a, ...args) {
+  return a.map(...args); //배열 반환
+};
 function mapper(f) {
   return (a) => map(a, f);
 }

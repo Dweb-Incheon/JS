@@ -1,6 +1,7 @@
 // 🌟 8.1.1. Function Declarations
 // Print the name and value of each property of o. Return undefined.
 "use strict";
+
 console.log(`🔥 ${factorial(10)}`); //hoisting
 
 function printprops(o) {

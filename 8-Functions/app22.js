@@ -19,6 +19,7 @@ uniqueInteger1(); // => 1
 // ✨ ② 방법
 // uniqueInteger() function that used a property of the function itself
 // to keep track of the next value to be returned.
+
 let uniqueInteger2 = (function () {
   // Define and invoke
   let counter = 0; // Private state of function below

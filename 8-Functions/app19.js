@@ -1,13 +1,12 @@
 // 🌟 Functions as Namespaces
 
 // 이 부분을 합치려는 코드로 가정할 것
-/*
-let global = "Dweb";
-function dweb() {
-  console.log("🌟", global);
-}
-dweb();
-*/
+
+// let global = "Dweb";
+// function dweb() {
+//   console.log("🌟", global);
+// }
+// dweb();
 
 // ✨ ① 첫번째 방법
 let global = "Incheon";
