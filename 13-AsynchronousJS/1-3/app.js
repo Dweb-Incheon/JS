@@ -1,7 +1,9 @@
+// 🌟 13.1.3 Network Events
+let obj;
 function getCurrentVersionNumber() {
   // Turn on "json-server"
   let request = new XMLHttpRequest();
-  request.open("GET", "http://localhost:3000/posts");
+  request.open("GET", "http://localhost:3000/web");
   request.send();
   // Register a callback that will be invoked when the response arrives
   request.onload = () => {
@@ -15,6 +17,9 @@ function getCurrentVersionNumber() {
       // Otherwise report an error to the callback
     }
   };
+  console.log(`😃 내가 먼저 실행되지롱~`);
+  console.log(`🙋 나도 나도 실행되지롱~`);
+  console.log(`😊 나도 나도`);
 
   // Register another callback that will be invoked for network errors
   request.onerror = request.ontimeout = function (e) {};
