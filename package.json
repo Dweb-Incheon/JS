@@ -23,5 +23,9 @@
   "dependencies": {
     "json-server": "^0.17.4",
     "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4"
   }
 }

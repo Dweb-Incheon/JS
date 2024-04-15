@@ -1,4 +1,4 @@
-$.getJSON("http://localhost:3000/posts").then((jsonData) => {
+$.getJSON("http://localhost:3000/web").then((jsonData) => {
   console.log(jsonData);
   // This is a callback function that will be asynchronously
   // invoked with the parsed JSON value when it becomes available.

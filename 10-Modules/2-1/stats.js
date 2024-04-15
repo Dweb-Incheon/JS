@@ -12,5 +12,5 @@ const stddev = (d) => {
       (d.length - 1)
   );
 };
-// Now export only the public ones
+// 🌟🌟 Now export only the public ones
 module.exports = { mean, stddev };
