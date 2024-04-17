@@ -4,4 +4,4 @@
 import * as elems from "./app.js";
 
 let circle = new elems.Circle(10);
-console.log(circle.area());
+console.log(`⛔️`, circle.area());

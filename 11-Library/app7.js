@@ -1,4 +1,5 @@
 // ✨ 11.1.1 The Set Class
+
 "use strict";
 let oneDigitPrimes = new Set([2, 3, 5, 7]);
 let product = 1;
