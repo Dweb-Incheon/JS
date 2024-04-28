@@ -8,16 +8,21 @@
   <body>
     <form>
       <button id="myButton">Click me!</button>
+      <div><img id="myIncheon" src="./INU.png" height="80" /></div>
     </form>
     <script>
       // Ask the web browser to return an object representing the HTML
       // <button> element that matches this CSS selector
       let okay = document.querySelector("#myButton");
+      let inu = document.querySelector("#myIncheon");
       // Now register a callback function to be invoked when the user
       // clicks on that button.
       okay.addEventListener("click", () => {
         console.log(`👍`);
         alert("Button clicked!");
+      });
+      inu.addEventListener("mousedown", () => {
+        document.getElementById("myIncheon").src = "./Dweb.png";
       });
     </script>
   </body>
