@@ -27,12 +27,10 @@ function countdown(seconds) {
 // countdown(15)과 countdown(10)으로 실행시켜 볼 것
 // resolve or reject이 호출되어도 함수는 계속 실행됨
 // 단지, Promise의 상태만이 관리된다는 것을 알 수 있음
-countdown(11)
+countdown(15)
   .then(function (obj) {
     console.log(`countdown completed successfully + ${obj.me()}`);
   })
   .catch(function (err) {
     console.log(`countdown experienced an error: " + ${err.message}`);
   });
-
-// 🤔 Settled 되었을 때, 더 이상 동작하지 않게 하려면 💭

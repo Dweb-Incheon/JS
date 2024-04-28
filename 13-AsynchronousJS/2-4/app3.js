@@ -1,3 +1,5 @@
+// 🌟 13.2.4 More on Promises and Errors
+
 // 😃 resolve:  https://jsonplaceholder.typicode.com/posts
 // 🤬 reject (throw error):  https://api/user/profile
 

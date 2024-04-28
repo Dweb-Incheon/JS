@@ -1,3 +1,5 @@
+// 🌟 13.2.5 Promises in Parallel
+
 // 🌟 Promise.all()
 
 async function getJSON(url) {

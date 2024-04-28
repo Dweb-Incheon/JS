@@ -1,14 +1,6 @@
-// 🌟 method chain: fetch().then().then() ✨
-// 😀 The preferred idiom to use Promises in a sequential chain
+// 🌟 13.2.2 Chaining Promises
+// 🌟 Summary ✨
 
-fetch("https://jsonplaceholder.typicode.com/posts")
-  .then((response) => {
-    return response.json();
-  })
-  .then((profile) => {
-    displayUserProfile(profile);
-  });
-
-function displayUserProfile(body) {
-  console.log(body);
-}
+fetch(theURL) // task 1; returns promise 1
+  .then(callback1) // task 2; returns promise 2
+  .then(callback2); // task 3; returns promise 3
