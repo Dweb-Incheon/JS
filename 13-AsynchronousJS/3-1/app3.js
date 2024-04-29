@@ -1,8 +1,8 @@
 // 🌟 13.3.3 Awaiting Multiple Promises
 
-// 🌟 await → 프로미스를 반환하는 함수에 사용됨. 여전히 비동기 코드라는 것을 염두할 것
-// 🌟🌟 따라서, "async" 와 함께 쓰여야 함
-// 🌟🌟 "You can only use the await keyword within functions
+// ✨ await → 프로미스를 반환하는 함수에 사용됨. 여전히 비동기 코드라는 것을 염두할 것
+// ✨ 따라서, "async" 와 함께 쓰여야 함
+// ✨ "You can only use the await keyword within functions
 //             that have been declared with the async keyword"
 
 async function getJSON() {
@@ -13,6 +13,6 @@ async function getJSON() {
 }
 console.log(`😡`);
 getJSON().then((res) => {
-  console.log(res);
+  console.log(`💕`, res);
 });
 console.log(`🤬`); // 😡 -> 🤬 -> 😀 순서로 출력

@@ -3,6 +3,7 @@
 const checkForUpdates = function (x) {
   console.log(x);
 };
+
 setTimeout(() => {
   checkForUpdates(`🤣`);
 }, 5000);
