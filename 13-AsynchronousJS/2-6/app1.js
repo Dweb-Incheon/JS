@@ -16,3 +16,4 @@ function getHighScore() {
 }
 
 getHighScore();
+console.log(`🌟 getJSON, getHighScore도 이제 비동기 함수들입니다.`);

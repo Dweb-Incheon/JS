@@ -6,6 +6,7 @@ getText("https://giseok.watchdognet.com", (status, body) => {
   console.log(`statud code ${status}`);
   console.log(`body ${body}`);
 });
+console.log(`💕💕💕💕💕`);
 
 // Read the text content of the URL and asynchronously pass it to the callback.
 function getText(url, callback) {

@@ -1,51 +1,39 @@
 // 🌟 13.2.6 Making Promises - Promises from scratch
+// 🌟 Promise를 만드는 두 번째 방법: "Promise.resolve()" 와 "Promise.reject()" 활용
 
-// 🌟 Making a Promise in Node Environment
-// 🌟 In this example, we're not going to use Fetch() API.
-// 😃 Resolve.  "https://jsonplaceholder.typicode.com/posts"
-// 😡 Reject.   "https://api/user/profile"
-
-import https from "https";
-
-getJSON("https://jsonplaceholder.typicode.com/posts").then((profile) => {
-  console.log(`✨`, profile);
-});
-
-function getJSON(url) {
+function wait(duration) {
+  // Create and return a new Promise
   return new Promise((resolve, reject) => {
-    const request = https.get(url, (response) => {
-      if (response.statusCode !== 200) {
-        reject(new Error(`HTTP Status ${response.statusCode}`));
-        response.resume(); // so we don't leak memory
-      } else if (
-        response.headers["content-type"] !== "application/json; charset=utf-8"
-      ) {
-        reject(new Error("Invalid content-type"));
-        response.resume();
-      } else {
-        // Otherwise, register events to read the body of the response
-        let body = "";
-        response.setEncoding("utf-8");
-        response.on("data", (chunk) => {
-          body += chunk;
-        });
-        response.on("end", () => {
-          // When the response body is complete, try to parse it
-          try {
-            let parsed = JSON.parse(body);
-            // If it parsed successfully, fulfill the promise
-            resolve(parsed);
-          } catch (e) {
-            // If parsing failed, reject the Promise
-            reject(e);
-          }
-        });
-      }
-    });
-    // We also reject the Promise if the request fails before we
-    // even get a response (such as when the network is down)
-    request.on("error", (error) => {
-      reject(error);
-    });
+    // If the argument is invalid, reject the Promise
+    if (duration < 0) {
+      setTimeout(() => {
+        reject(new Error("Time travel not yet implemented"));
+      }, 1000);
+    }
+    // Otherwise, wait asynchronously and then resolve the Promise.
+    // setTimeout will invoke resolve() with no arguments, which means
+    // that the Promise will fulfill with the undefined value.
+    else
+      setTimeout(() => {
+        resolve(fetch("http://localhost:3000/web"));
+      }, duration);
   });
 }
+
+let p = wait(1000);
+
+p.then((response) => {
+  return response.text();
+})
+  .then((profile) => {
+    console.log(`✨`, profile);
+  })
+  .catch((e) => {
+    console.error(e);
+  });
+
+console.log(p);
+
+setTimeout(() => {
+  console.log(p);
+}, 5000);

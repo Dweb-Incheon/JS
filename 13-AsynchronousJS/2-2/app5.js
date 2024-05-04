@@ -17,7 +17,9 @@ fetch("http://localhost:3000/web") // Make an HTTP request
 function render(items) {
   const contatiner = document.querySelector("#dweb");
   contatiner.innerHTML = items.map((item) => createHTMLString(item)).join("");
+  return contatiner.innerHTML;
 }
+
 function createHTMLString(item) {
   return `<li> <span>${item.studentID} : ${item.name}</span> </li>`;
 }

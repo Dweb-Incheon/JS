@@ -3,6 +3,7 @@ $.getJSON("http://localhost:3000/web").then((jsonData) => {
   // This is a callback function that will be asynchronously
   // invoked with the parsed JSON value when it becomes available.
 });
+
 // Suppose you have a function like this to display a user profile
 
 //function displayUserProfile(profile) {

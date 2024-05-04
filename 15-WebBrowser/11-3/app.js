@@ -1,46 +1,30 @@
-// 🌟 15.12.3 IndexedDB
+// Establish WebSocket connection with the server
+const ws = new WebSocket("ws://localhost:3000");
 
-if (window.indexedDB) {
-  var name = "IndexedDB Name";
-  var version = 1;
-  var db = null;
-  // IDBOpenDBRequest
-  var request = indexedDB.open(name, version);
-  request.onupgradeneeded = function (event) {
-    // IDBDatabase
-    db = request.result;
-    var key = "id";
-    var name = "store name";
-    // IDBObjectStore
-    var store = db.createObjectStore(name, { keyPath: key });
-    var indexName = "by_name";
-    var keyPath = "name";
-    // IDBIndex
-    var index = store.createIndex(indexName, keyPath);
-    var obj = {
-      [key]: 1,
-      [keyPath]: "name",
-    };
-    store.put(obj);
-  };
-  request.onsuccess = function (event) {
-    db = request.result;
-    // IDBTransaction
-    var transaction = db.transaction(["store name"], "readonly");
-    // IDBObjectStore
-    var objectStore = transaction.objectStore("store name");
-    // IDBRequest
-    var cursor = objectStore.openCursor();
-    cursor.onsuccess = function (event) {
-      // IDBCursorWithValue
-      var cursor = event.target.result;
-      if (cursor) {
-        // {id: 1, name: "name"}
-        console.log(cursor.value);
-        cursor.continue();
-      } else {
-        console.log("end");
-      }
-    };
-  };
-}
+// Event listener for receiving messages from the server
+ws.addEventListener("message", (event) => {
+  const messageDiv = document.createElement("div");
+
+  messageDiv.textContent = event.data;
+  document.getElementById("chat-messages").appendChild(messageDiv);
+});
+
+// Event listener for submitting the form (sending a message)
+document.getElementById("message-form").addEventListener("submit", (event) => {
+  event.preventDefault();
+  const messageInput = document.getElementById("message-input");
+  const message = messageInput.value;
+  if (message.trim() !== "") {
+    sendMessage(message);
+    messageInput.value = "";
+  }
+});
+
+// Function to send a message to the server
+const sendMessage = (message) => {
+  if (ws.readyState === WebSocket.OPEN) {
+    ws.send(message);
+  } else {
+    console.error("WebSocket connection is not open.");
+  }
+};

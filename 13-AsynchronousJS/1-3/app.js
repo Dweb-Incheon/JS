@@ -10,16 +10,19 @@ function getCurrentVersionNumber() {
   request.onload = () => {
     if (request.status === 200) {
       // If HTTP status is good, get version number and call callback.
+      console.log(request.response);
       const obj = JSON.parse(request.response); // string -> JSON object
-      console.log(obj);
+      console.log(`💕`, obj);
       const btnElement = document.getElementById("demo");
       btnElement.innerText = obj[0].name;
     } else {
-      // Otherwise report an error to the callback
+      console.error(`🚨`); // Otherwise report an error to the callback
     }
   };
   // Register another callback that will be invoked for network errors
-  request.onerror = request.ontimeout = function (e) {};
+  request.onerror = request.ontimeout = function (e) {
+    console.log(`⛔️`, e);
+  };
 
   console.log(`😃 내가 먼저 실행되지롱~`);
   console.log(`🙋 나도 나도 실행되지롱~`);

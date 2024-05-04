@@ -1,9 +1,10 @@
 {
-  "posts": [{ "id": 1, "title": "json-server", "author": "typicode" }],
-  "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
-  "profile": { "name": "typicode", "age": 12 },
-  "incheon": [
-    { "name": "uni", "age": 12 },
-    { "name": "inu", "age": 21 }
+  "web": [
+    { "name": "choi", "id": 12345678 },
+    { "name": "kim", "id": 12345678 }
+  ],
+  "server": [
+    { "name": "lee", "id": 12345678 },
+    { "name": "ko", "id": 12345678 }
   ]
 }
