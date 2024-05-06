@@ -3,22 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WebSocket Chat</title>
+    <title>🌟 15.11.3 WebSockets</title>
   </head>
   <body>
-    <h1>WebSocket Chat</h1>
+    <script>
+      const ws = new WebSocket("ws://localhost:3003");
+      ws.addEventListener("open", () => {
+        console.log(`We are connected 💕`);
 
-    <div id="chat-messages"></div>
+        ws.send(`I can't wait for UNI LAND`);
+      });
 
-    <form id="message-form">
-      <input
-        type="text"
-        id="message-input"
-        placeholder="Type your message..."
-      />
-      <button type="submit">Send</button>
-    </form>
+      ws.addEventListener("message", (msg) => {
+        console.log(msg);
+      });
 
-    <script src="./app.js"></script>
+      ws.addEventListener("message", ({ data }) => {
+        console.log(data);
+      });
+    </script>
   </body>
 </html>
