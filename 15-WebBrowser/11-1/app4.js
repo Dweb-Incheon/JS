@@ -1,17 +1,29 @@
-// ✨ Setting Request Parameters
-// 🌟🌟 파라미터를 "URL"과 함께 전달하고 싶을 때
-//     - searchParams 사용할 것
-//     - Network에서 요청 헤더를 살펴볼 것 "?hi=dweb"
+// ✨ SETTTING REQUEST HEADERS (자원 요청 시 헤더 설정하기)
+//  - 예를들면, Credential이 포함된 Authorization header를 만들 수 있음
+//  🌟방법🌟
+//   fetch()의 "첫 번째 인자에 URL", "두 번째 인자에 객체(헤더)"를 넣을 것
 
-async function search(term) {
-  let url = new URL("https://jsonplaceholder.typicode.com/posts");
-  url.searchParams.set("hi", term);
-  let response = await fetch(url);
-  if (!response.ok) throw new Error(response.statusText);
-  let resultsArray = await response.json();
-  return resultsArray;
-}
+const username = "dweb";
+const password = "incheon";
 
-search("dweb").then((res) => {
-  console.log(res);
-});
+let authHeaders = new Headers();
+// ✨ Request 헤더에 Authorization과 Dweb 필드가 추가된 것을 확인할 수 있음
+authHeaders.set("Authorization", `Basic ${btoa(`${username}:${password}`)}`);
+authHeaders.set("Dweb", `Incheon National University`);
+fetch("http://localhost:3000/web", { headers: authHeaders })
+  .then((response) => response.json())
+  .then((profile) => console.log(profile));
+
+// ✨ fetch()에 인자 두 개를 전달하는 또 다른 방법
+//  -  Ruquest 생성자 사용
+/*
+let url = "http://localhost:3000/web";
+let request = new Request(url, { authHeaders });
+fetch(request)
+  .then((res) => {
+    return res.text();
+  })
+  .then((data) => {
+    console.log(data);
+  });
+  */

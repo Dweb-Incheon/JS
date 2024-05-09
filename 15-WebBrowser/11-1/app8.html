@@ -3,42 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Form</title>
+    <title>🌟 FILE UPLOAD WITH FETCH()</title>
   </head>
   <body>
-    <form id="dweb-form" action="./login" method="post">
-      <strong>이름</strong>
-      <input type="name" name="name" value="횃불이" /><br /><br />
-
-      <strong>성별</strong>
-      <input type="radio" name="gender" value="M" />M
-      <input type="radio" name="gender" value="F" />F<br /><br />
-
-      <strong>관심트랙</strong>
-      <input type="checkbox" name="part" value="인공지능" />인공지능트랙
-      <input type="checkbox" name="part" value="백엔드" />백엔드트랙
-      <br /><br />
-
-      <input type="submit" value="제출" />
+    <form>
+      <div>
+        <label>Select file to upload</label>
+        <input id="fileinput" type="file" />
+      </div>
+      <button type="submit">Convert</button>
     </form>
-    <p id="log"></p>
-    <script>
-      let student = new Object();
-      function logSubmit1(event) {
-        log.textContent = `${student.name} Form Submitted! Timestamp: ${event.timeStamp}`;
-        event.preventDefault();
-      }
-      function logSubmit2(event) {
-        let formData = new FormData(document.getElementById("dweb-form"));
-        student.name = formData.get("name");
-        student.gender = formData.get("gender");
-        student.track = formData.get("part");
-        console.log(`🌟 ${student.name} ${student.gender} ${student.track}`);
-      }
-
-      const eve = document.getElementById("dweb-form");
-      eve.addEventListener("submit", logSubmit1);
-      eve.addEventListener("submit", logSubmit2);
-    </script>
+    <script type="text/javascript" src="./app8.js"></script>
   </body>
 </html>

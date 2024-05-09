@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>✨ Client-Side</title>
+  </head>
+  <body>
+    <script>
+      fetch("/stream").then((res) => {
+        const reader = res.body.getReader();
+
+        const read = () => {
+          reader.read().then(({ done, value }) => {
+            if (done) {
+              console.log("end");
+              return;
+            }
+            const decoder = new TextDecoder();
+            console.log("received" + decoder.decode(value));
+            read();
+          });
+        };
+        read();
+      });
+    </script>
+  </body>
+</html>

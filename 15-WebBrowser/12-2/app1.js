@@ -17,3 +17,4 @@ function getCookies() {
   }
   return cookies;
 }
+let cookies = getCookies();
