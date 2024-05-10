@@ -1,6 +1,6 @@
-localStorage.x = 10;
-let x = parseInt(localStorage.x);
-localStorage.lastRead = new Date().toUTCString();
-let lastRead = new Date(Date.parse(localStorage.lastRead));
-localStorage.data = JSON.stringify(data); // Encode and store
-let data = JSON.parse(localStorage.data); // Retrieve and decode.
+let names = localStorage.username; // Query a stored value.
+if (!names) {
+  names = prompt("What is your name?"); // Ask the user a question.
+  localStorage.username = names; // Store the user's response.
+}
+localStorage.clear();
