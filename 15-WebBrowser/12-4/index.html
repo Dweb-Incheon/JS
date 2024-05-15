@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/gun/examples/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gun/sea.js"></script>
+    <title>GunDB</title>
+  </head>
+  <body>
+    <h1>Todo</h1>
+
+    <form id="sign">
+      <input id="alias" placeholder="username" />
+      <input id="pass" type="password" placeholder="passphrase" />
+      <input id="in" type="submit" value="sign in" />
+      <input id="up" type="button" value="sign up" />
+    </form>
+
+    <ul></ul>
+
+    <form id="said">
+      <input id="say" />
+      <input id="speak" type="submit" value="speak" />
+    </form>
+
+    <script>
+      gun = GUN(); // your code here
+      var user = gun.user();
+
+      $("#up").on("click", function (e) {
+        user.create($("#alias").val(), $("#pass").val());
+      });
+
+      $("#sign").on("submit", function (e) {
+        e.preventDefault();
+        user.auth($("#alias").val(), $("#pass").val());
+      });
+      $("#said").on("submit", function (e) {
+        e.preventDefault();
+        if (!user.is) {
+          return;
+        }
+        user.get("said").set($("#say").val());
+        $("#say").val("");
+      });
+      function UI(say, id) {
+        var li = $("#" + id).get(0) || $("<li>").attr("id", id).appendTo("ul");
+        $(li).text(say);
+      }
+      gun.on("auth", function () {
+        $("#sign").hide();
+        user.get("said").map().once(UI);
+      });
+    </script>
+  </body>
+</html>
